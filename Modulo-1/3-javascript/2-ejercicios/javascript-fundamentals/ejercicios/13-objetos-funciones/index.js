@@ -42,7 +42,7 @@ const getPeopleWeight = (arrayPersonasPeso) => {
 // ⬇️ NO TOCAR ESTA PARTE O ROMPERÁS LOS TESTS ⬇️
 export default {
   printPersons,
-  addProperties,
+  addProperty,
   getPeopleWeight,
 };
 // ///////////////////////////////////////////////////////////////
