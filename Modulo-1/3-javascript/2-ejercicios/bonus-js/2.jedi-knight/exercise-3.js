@@ -1,12 +1,13 @@
 const countFavoriteTimes = (users) => {
-    const timesFavorite= [];
+    const timesFavorite= {};
 
     for (let user of users){
-
         for (let sound in user.favoritesSounds){
-            console.log(sound);
+            timesFavorite[sound] = ++timesFavorite[sound] || 1;
         }
     }
+
+    return timesFavorite;
 }
 
 
@@ -45,4 +46,4 @@ const users = [
     },
   ];
 
-  countFavoriteTimes(users);
+  console.log(countFavoriteTimes(users));
