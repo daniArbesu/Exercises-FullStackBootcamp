@@ -13,13 +13,13 @@ body {
 }
 
 .header {
+  align-items: center;
   background: darkmagenta;
   color: white;
   font-size: 32px;
   font-weight: 900;
   min-height: 72px;
   padding: 16px;
-  align-items: center;
 }
 
 .footer {
@@ -27,19 +27,19 @@ body {
   background: #eee;
   color: darkmagenta;
   display: flex;
-  min-height: 72px;
   justify-content: center;
+  min-height: 72px;
 }
 
 .sidebar {
   background: royalblue;
+  min-width: 300px;
   padding: 16px;
-  width: 300px;
 }
 
 .sidebar a{
-  font-size: 24px;
   color: white;
+  font-size: 24px;
   text-decoration: none;
 }
 
@@ -51,6 +51,7 @@ body {
   border-radius: 4px;
   border: 1px solid #eee;
   box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.06);
+  flex-basis: 30%;
   margin: 16px;
   padding: 16px;
 }
@@ -58,11 +59,11 @@ body {
 .main {
   display: flex;
   flex-direction: row;
+  flex: 1;
 }
 
 .cards {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* flex-flow: row wrap; */
+  display: flex;
+  flex-wrap: wrap;
   padding: 32px;
 }
