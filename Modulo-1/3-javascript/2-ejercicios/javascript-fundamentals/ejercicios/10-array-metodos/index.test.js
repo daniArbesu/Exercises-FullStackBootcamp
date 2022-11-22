@@ -10,7 +10,7 @@ import {
   peliculas,
   peliculasCopiaSinReferencia,
   peliculasCopiaConReferencia,
-} from "../../soluciones/array-metodos";
+} from "../../soluciones/10-array-metodos";
 
 describe("Ejercicios de Métodos de Arrays", () => {
   it("espero encontrar una variable tipo array, una tipo número y que length valga la longitud de marks", () => {
