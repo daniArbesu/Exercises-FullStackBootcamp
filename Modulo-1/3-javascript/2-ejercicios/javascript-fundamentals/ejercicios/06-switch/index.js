@@ -1,4 +1,4 @@
-function main(customValue) {
+function main(customValue, customCoin) {
   var ex1 = '';
   var ex2 = 0;
   // Antes de comenzar, considera que tendrás disponible las variables customValue y customCoin,
@@ -12,8 +12,14 @@ function main(customValue) {
     case 'coche':
       ex1 = 'car';
       break;
+    case 'avión':
+      ex1 = 'plane';
+      break;
+    case 'moto':
+      ex1 = 'motorbike';
+      break;
     default:
-      ex1 = '';
+      ex1 = 'none';
   }
 
   // 2. Supón que tenemos una máquina de cambio de divisas. Dado un valor number cualquiera para
@@ -27,8 +33,17 @@ function main(customValue) {
     case 'USD':
       ex2 = customValue * 1;
       break;
+    case 'EUR':
+      ex2 = customValue * 1.05;
+      break;
+    case 'GBP':
+      ex2 = customValue * 1.10;
+      break;
+    case 'CAD':
+      ex2 = customValue * 0.98;
+      break;
     default:
-      ex2 = '';
+      ex2 = customValue;
   }
 
   return {

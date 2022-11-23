@@ -3,6 +3,9 @@
   border: 4px solid midnightblue;
   width: 400px;
   height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .box {
@@ -12,4 +15,5 @@
   border: 6px solid maroon;
   width: 80px;
   height: 80px;
+  grid-area: 2/2;
 }

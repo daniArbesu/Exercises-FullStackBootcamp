@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,30 +9,10 @@ body {
   font-family: sans-serif;
 }
 
-.card {
-  width: 400px;
-  background: #fff;
-  margin: 16px auto;
-}
-
-.title {
-  background: #e3f4ff;
-}
-
-.content {
-  background: #e3f4ff;
-}
-
-.button-container {
-  background: #e3f4ff;
-}
-
-button {
-  background: white;
-  border: 1px solid #eee;
-}
-
-div, p, span, a{
+div,
+p,
+span,
+a {
   height: 40px;
   width: 150px;
   margin: 10px;
@@ -40,18 +20,29 @@ div, p, span, a{
   display: inline-block;
 }
 
-div{
+div {
   background-color: #e74c3c;
 }
 
-p{
+p {
   background-color: #9b59b6;
 }
 
-span{
+span {
   background-color: #3498db;
 }
 
-a{
+a {
   background-color: #2ecc71;
+}
+
+div,
+p,
+span,
+a {
+  height: 40px;
+  width: 150px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
 }
