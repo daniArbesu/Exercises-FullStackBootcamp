@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Link, Routes } from 'react-router-dom';
-import Tictactoe from './components/Tictactoe';
-import Hangman from './components/Hangman';
+import Tictactoe from './pages/Tictactoe';
+import Hangman from './pages/Hangman';
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import TTTBoard from './TTTBoard';
+import TTTBoard from './components/TTTBoard';
 
 const Tictactoe = () => {
   const [isStarted, setIsStarted] = useState(false);
