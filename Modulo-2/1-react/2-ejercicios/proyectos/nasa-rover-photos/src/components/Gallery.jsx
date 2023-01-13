@@ -1,36 +1,55 @@
 import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { API_ROVER } from '../api/rovers';
+import { useState, useEffect } from 'react';
+import { getRoverPhotos, ROVERS } from '../api/rovers';
+import Slideshow from './SlideShow';
+
+const roverIds = Object.keys(ROVERS);
 
 const Gallery = () => {
-  const [photos, setPhotos] = useState([]);
-  useEffect(() => {
-    API_ROVER.get(
-      `/curiosity/photos?sol=1000&api_key=${
-        import.meta.env.VITE_APP_NASA_API_KEY
-      }`
+  const [rover, setRover] = useState(roverIds[0]);
+  const [photos, setPhotos] = useState(() =>
+    roverIds.reduce(
+      (acc, nextKey) => ({
+        ...acc,
+        [nextKey]: [],
+      }),
+      {}
     )
-      .then((response) => {
-        const photosWithCamera = response.data.photos.map((photo) => ({
-          src: photo.img_src,
-          cameraName: photo.camera.full_name,
-        }));
+  );
 
-        setPhotos(photosWithCamera);
-      })
-      .catch((err) => {});
-  }, []);
+  useEffect(() => {
+    if (photos[rover].length) {
+      return;
+    }
+
+    getRoverPhotos(rover).then((photoList) => {
+      setPhotos((prevState) => ({ ...prevState, [rover]: photoList }));
+    });
+  }, [rover]);
+
+  const handleSelectRover = (ev) => {
+    setRover(ev.target.value);
+  };
+
+  const roverPhotos = photos[rover];
 
   return (
-    <div>
+    <div className="gallery">
       <h3>Gallery</h3>
+      <select
+        name="rover"
+        id="rover"
+        value={rover}
+        onChange={handleSelectRover}
+      >
+        {Object.entries(ROVERS).map((rover) => (
+          <option key={rover[0]} value={rover[0]}>
+            {rover[1]}
+          </option>
+        ))}
+      </select>
 
-      {photos.length ? (
-        <div>
-          <img src={photos[0].src} alt={photos[0].cameraName} />
-        </div>
-      ) : null}
+      {roverPhotos.length ? <Slideshow photoList={roverPhotos} /> : null}
     </div>
   );
 };

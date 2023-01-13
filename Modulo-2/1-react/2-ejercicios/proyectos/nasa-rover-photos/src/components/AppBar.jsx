@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 const AppBar = () => {
   return (
-    <header>
-      <h1>Mars Rovers Photos! 🤖</h1>
+    <header className="app-bar">
+      <h3>Mars Rovers Photos! 🤖</h3>
       <nav>
         <NavLink to="/" end>
           Home

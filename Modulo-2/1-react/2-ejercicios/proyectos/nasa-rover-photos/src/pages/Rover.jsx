@@ -3,9 +3,10 @@ import Gallery from '../components/Gallery';
 
 const Rover = () => {
   return (
-    <div>
+    <main className="rover">
+      <h3>Galería de imágenes | Mars Rover</h3>
       <Gallery />
-    </div>
+    </main>
   );
 };
 
