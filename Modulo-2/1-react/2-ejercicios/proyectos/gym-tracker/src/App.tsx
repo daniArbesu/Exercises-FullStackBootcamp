@@ -1,11 +1,22 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import { AppHeader, AppMain } from './App.styles';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Routine from './pages/Routine';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <AppHeader>
+        <h2>React Gym Tracker 🏋️</h2>
+      </AppHeader>
+      <AppMain>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/routine/:id" element={<Routine />} />
+        </Routes>
+      </AppMain>
+    </div>
+  );
 }
 
 export default App;
