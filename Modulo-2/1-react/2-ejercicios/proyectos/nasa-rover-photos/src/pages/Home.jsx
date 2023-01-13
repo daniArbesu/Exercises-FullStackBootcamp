@@ -7,9 +7,9 @@ const Home = () => {
       <iframe
         src="https://www.youtube.com/embed/21X5lGlDOfg"
         title="NASA Live: Official Stream of NASA TV"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
+        allowFullScreen
       ></iframe>
     </main>
   );
