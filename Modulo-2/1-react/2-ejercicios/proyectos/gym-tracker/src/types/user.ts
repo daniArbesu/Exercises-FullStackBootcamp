@@ -1,6 +1,6 @@
 export type User = {
-  name: string;
-  age: number;
-  weight: number;
-  height: number;
+  name: string | null;
+  age: number | null;
+  weight: number | null;
+  height: number | null;
 };
