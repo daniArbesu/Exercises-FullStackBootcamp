@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PLAY_WORDS } from '../../constant';
+import { PLAY_WORDS } from '../../constants';
 import { HangmanBoardWrapper } from './styles';
 
 let SELECTED_WORD = '';

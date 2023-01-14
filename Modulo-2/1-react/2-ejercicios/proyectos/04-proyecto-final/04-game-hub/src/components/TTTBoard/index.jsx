@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { INITIAL_BOARD } from '../../constant';
+import { INITIAL_BOARD } from '../../constants';
 import { TTTBoardWrapper, TTTButton } from './styles';
 
 // Variable to control the player turn
