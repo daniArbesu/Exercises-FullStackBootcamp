@@ -122,9 +122,9 @@ const TTTBoard = () => {
   return (
     <div>
       {isGameOver ? (
-        <h3>
+        <h2>
           Player <b>{playerXTurn ? 'O' : 'X'}</b> Won!!
-        </h3>
+        </h2>
       ) : (
         <p>
           It's player <b>{playerXTurn ? 'X' : 'O'}</b> turn
