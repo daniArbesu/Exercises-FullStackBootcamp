@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { TTTBoardWrapper, TTTButton } from './styles';
 
 const INITIAL_BOARD = [
   [null, null, null],
@@ -9,13 +9,13 @@ const INITIAL_BOARD = [
 
 let playerXTurn = true;
 
-const TTTBoard = ({ isStarted }) => {
+const TTTBoard = () => {
   const [board, setBoard] = useState();
 
   useEffect(() => {
     //reset the game everytime we click on the finish button
     setBoard(INITIAL_BOARD);
-  }, [isStarted]);
+  }, []);
 
   const handleBoardChange = (id) => {
     const player = playerXTurn ? 'X' : 'O';
@@ -34,13 +34,13 @@ const TTTBoard = ({ isStarted }) => {
     for (let row in board) {
       for (let column in board) {
         boardView.push(
-          <button
+          <TTTButton
             id={`${row}-${column}`}
             key={`${row}-${column}`}
             onClick={(e) => handleBoardChange(e.target.id)}
           >
             {board[row][column]}
-          </button>
+          </TTTButton>
         );
       }
     }
@@ -50,14 +50,10 @@ const TTTBoard = ({ isStarted }) => {
 
   return (
     <>
-      {isStarted ? (
-        <div className="ttt-board">
-          <p>
-            Es el turno de <span>{playerXTurn ? 'X' : 'O'}</span>
-          </p>
-          {renderBoard()}
-        </div>
-      ) : null}
+      <p>
+        Es el turno de <span>{playerXTurn ? 'X' : 'O'}</span>
+      </p>
+      <TTTBoardWrapper>{renderBoard()}</TTTBoardWrapper>
     </>
   );
 };

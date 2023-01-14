@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { HangmanBoardWrapper } from './styles';
 
 const PLAY_WORDS = ['car', 'house', 'monkey', 'shark'];
 const MAX_TRIALS = 10;
@@ -51,7 +52,7 @@ const HangmanBoard = () => {
   };
 
   return (
-    <div className="hangman-board">
+    <HangmanBoardWrapper>
       <h2>Word: {printWord()}</h2>
       <h3>{ENTERED_LETTER_STRING}</h3>
       <p>Press any letter on your keyboard</p>
@@ -59,7 +60,7 @@ const HangmanBoard = () => {
         Entered letters: {console.log(enteredLetter)}
         {enteredLetter.map((letter) => `${letter} `)}
       </p>
-    </div>
+    </HangmanBoardWrapper>
   );
 };
 

@@ -12,7 +12,7 @@ const Tictactoe = () => {
         <button onClick={() => setIsStarted(!isStarted)}>
           {isStarted ? 'End Game' : 'Start Game'}
         </button>
-        <TTTBoard isStarted={isStarted} />
+        {isStarted ? <TTTBoard /> : null}
       </div>
     </div>
   );
