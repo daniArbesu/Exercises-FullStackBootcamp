@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
+import { INITIAL_BOARD } from '../../constant';
 import { TTTBoardWrapper, TTTButton } from './styles';
-
-const INITIAL_BOARD = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
 
 let playerXTurn = true;
 

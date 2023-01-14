@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
+import { PLAY_WORDS } from '../../constant';
 import { HangmanBoardWrapper } from './styles';
 
-const PLAY_WORDS = ['car', 'house', 'monkey', 'shark'];
-const MAX_TRIALS = 10;
 let SELECTED_WORD = '';
 let ENTERED_LETTER_STRING = '';
 
