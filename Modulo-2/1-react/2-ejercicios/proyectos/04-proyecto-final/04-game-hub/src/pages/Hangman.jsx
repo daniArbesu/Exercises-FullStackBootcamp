@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import HangmanBoard from './components/HangmanBoard';
+import React, { useState } from 'react';
+import HangmanBoard from '../components/HangmanBoard';
 
 const Hangman = () => {
   const [isStarted, setIsStarted] = useState(false);
