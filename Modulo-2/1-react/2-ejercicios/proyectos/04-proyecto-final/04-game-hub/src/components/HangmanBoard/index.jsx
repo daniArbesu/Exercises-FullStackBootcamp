@@ -2,33 +2,27 @@ import { useEffect, useState } from 'react';
 import { PLAY_WORDS } from '../../constants';
 import { HangmanBoardWrapper } from './styles';
 
-let SELECTED_WORD = '';
-let ENTERED_LETTER_STRING = '';
+const ENTERED_LETTERS_LIST = [];
 
 const HangmanBoard = () => {
-  const [enteredLetter, setEnteredLetter] = useState(['a']);
+  const [selectedWord, setSelectedWord] = useState('');
+  const [enteredLetter, setEnteredLetter] = useState('');
 
-  useEffect(() => {
-    const handleKeyPress = (e) => {
-      const letter = e.key;
-      console.log(enteredLetter);
+  const handleKeyPress = (e) => {
+    //we make it lowercase to avoid counting uppercases
+    const letter = e.key.toLowerCase();
 
-      if (e.code.startsWith('Key')) {
-        if (enteredLetter.includes(letter)) {
-          ENTERED_LETTER_STRING = `You pressed ${letter} already`;
-          setEnteredLetter((prevEnteredLetter) => prevEnteredLetter);
-        } else {
-          ENTERED_LETTER_STRING = `You pressed ${letter}`;
-          setEnteredLetter((prevEnteredLetter) => [
-            ...prevEnteredLetter,
-            letter,
-          ]);
-        }
-        console.log('You pressed', e.key);
+    if (e.code.startsWith('Key')) {
+      if (ENTERED_LETTERS_LIST.includes(letter)) {
+        setEnteredLetter(`You pressed ${letter} already`);
+      } else {
+        ENTERED_LETTERS_LIST.push(letter);
+        setEnteredLetter(`You pressed ${letter}`);
       }
-    };
-
-    SELECTED_WORD = PLAY_WORDS[1];
+    }
+  };
+  useEffect(() => {
+    setSelectedWord(PLAY_WORDS[1]);
     window.addEventListener('keydown', handleKeyPress);
 
     return () => {
@@ -40,8 +34,8 @@ const HangmanBoard = () => {
 
   const printWord = () => {
     let displayWords = '';
-    for (const letter of SELECTED_WORD) {
-      if (enteredLetter.includes(letter)) {
+    for (const letter of selectedWord) {
+      if (ENTERED_LETTERS_LIST.includes(letter)) {
         displayWords += `${letter} `;
       } else {
         displayWords += '_ ';
@@ -53,11 +47,11 @@ const HangmanBoard = () => {
   return (
     <HangmanBoardWrapper>
       <h2>Word: {printWord()}</h2>
-      <h3>{ENTERED_LETTER_STRING}</h3>
+      <h3>{enteredLetter}</h3>
       <p>Press any letter on your keyboard</p>
       <p>
         Entered letters: {console.log(enteredLetter)}
-        {enteredLetter.map((letter) => `${letter} `)}
+        {ENTERED_LETTERS_LIST.map((letter) => `${letter} `)}
       </p>
     </HangmanBoardWrapper>
   );
