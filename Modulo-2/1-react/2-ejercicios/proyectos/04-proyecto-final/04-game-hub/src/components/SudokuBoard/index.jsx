@@ -20,6 +20,7 @@ const SudokuBoard = () => {
           <input
             type="number"
             value={sudokuInput}
+            disabled={Boolean(sudokuInput)}
             min="0"
             step="1"
             max="9"
