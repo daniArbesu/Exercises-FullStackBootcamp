@@ -7,9 +7,11 @@ export const SudokuWrapper = styled.div`
   padding: 1rem;
 
   > input {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0.5rem;
     text-align: center;
+    width: 40px;
+    height: 40px;
   }
 
   /* Chrome, Safari, Edge, Opera */
