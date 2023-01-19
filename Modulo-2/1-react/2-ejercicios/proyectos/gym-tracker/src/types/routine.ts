@@ -1,5 +1,5 @@
 export type Exercise = {
-  id: string;
+  id?: string;
   name: string;
   series: number;
   repetitions: number;

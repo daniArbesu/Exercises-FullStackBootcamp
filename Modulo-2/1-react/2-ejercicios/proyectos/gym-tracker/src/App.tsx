@@ -2,6 +2,7 @@ import { AppHeader, AppMain } from './App.styles';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Routine from './pages/Routine';
+import { RoutineContextProvider } from './context/RoutineContext';
 
 function App() {
   return (
@@ -12,7 +13,14 @@ function App() {
       <AppMain>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/routine/:id" element={<Routine />} />
+          <Route
+            path="/routine/:id"
+            element={
+              <RoutineContextProvider>
+                <Routine />
+              </RoutineContextProvider>
+            }
+          />
         </Routes>
       </AppMain>
     </div>

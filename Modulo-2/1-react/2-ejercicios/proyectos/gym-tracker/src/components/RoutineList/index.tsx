@@ -3,7 +3,12 @@ import { RoutineContext } from '../../context/RoutineContext';
 import { Routine } from '../../types/routine';
 import Modal from '../Modal';
 import RoutineForm from '../RoutineForm';
-import { AddButton, RoutineLink, RoutineListWrapper } from './styles';
+import {
+  AddButton,
+  RoutineLink,
+  RoutineListWrapper,
+  RoutinesList,
+} from './styles';
 
 const RoutineList = (): React.ReactElement => {
   const [open, setOpen] = useState(false);
@@ -19,7 +24,7 @@ const RoutineList = (): React.ReactElement => {
       <RoutineListWrapper>
         <h3>Your Programms</h3>
 
-        <div>
+        <RoutinesList>
           {routines.map(({ title, id }) => (
             <RoutineLink key={id} to={`/routine/${id}`}>
               <h3>{title}</h3>
@@ -27,7 +32,7 @@ const RoutineList = (): React.ReactElement => {
               <span>▶️</span>
             </RoutineLink>
           ))}
-        </div>
+        </RoutinesList>
 
         <AddButton onClick={() => setOpen(true)}>+</AddButton>
       </RoutineListWrapper>

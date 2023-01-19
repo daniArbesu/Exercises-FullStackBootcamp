@@ -7,13 +7,15 @@ import {
   useEffect,
 } from 'react';
 import { v4 as uuidv4 } from 'uuid'; //generate random id
-import { Routine } from '../types/routine';
+import { Exercise, Routine } from '../types/routine';
 
 const initialRoutineState: Routine[] = [];
 
+export type AddExercise = (routineId: string, exercise: Exercise) => void;
+
 export const RoutineContext = createContext<
-  [Routine[], (routine: Routine) => void]
->([initialRoutineState, () => null]);
+  [Routine[], (routine: Routine) => void, AddExercise]
+>([initialRoutineState, () => null, () => null]);
 
 export const RoutineContextProvider = ({
   children,
@@ -30,11 +32,31 @@ export const RoutineContextProvider = ({
   }, [routines]);
 
   const addRoutine = useCallback((routine: Routine) => {
-    setRoutines((prevState) => [...prevState, { ...routine, id: uuidv4() }]);
+    setRoutines((prevState) => [
+      ...prevState,
+      { ...routine, id: uuidv4(), exercises: [] },
+    ]);
+  }, []);
+
+  const addExercise = useCallback((routineId: string, exercise: Exercise) => {
+    setRoutines((prevState) => {
+      const newRoutines = prevState.map((routine) => {
+        if (routine.id !== routineId) {
+          return routine;
+        }
+
+        return {
+          ...routine,
+          exercises: [...routine.exercises, exercise],
+        };
+      });
+
+      return newRoutines;
+    });
   }, []);
 
   return (
-    <RoutineContext.Provider value={[routines, addRoutine]}>
+    <RoutineContext.Provider value={[routines, addRoutine, addExercise]}>
       {children}
     </RoutineContext.Provider>
   );
