@@ -1,10 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { ContentBlockCss } from '../../styles/Global';
 
 export const UserProfileWrapper = styled.div`
-  border-radius: 4px;
-  background-color: #494646;
-  padding: 1rem;
-
+  ${ContentBlockCss}
   display: flex;
   flex-direction: column;
   gap: 1rem;

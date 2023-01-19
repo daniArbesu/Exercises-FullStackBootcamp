@@ -9,3 +9,9 @@ export const AppHeader = styled.header`
 export const AppMain = styled.main`
   padding: 1rem;
 `;
+
+export const HomeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;

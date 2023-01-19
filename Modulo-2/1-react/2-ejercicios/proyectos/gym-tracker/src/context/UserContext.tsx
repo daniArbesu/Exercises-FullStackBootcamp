@@ -1,12 +1,13 @@
-import React, {
+import {
   createContext,
   Dispatch,
   SetStateAction,
   useState,
+  useEffect,
 } from 'react';
 import { User } from '../types/user';
 
-const initialUserState = {
+const initialUserState: User = {
   name: null,
   age: null,
   weight: null,
@@ -23,7 +24,15 @@ export const UserContextProvider = ({
 }: {
   children: React.ReactNode;
 }): React.ReactElement => {
-  const [user, setUser] = useState<User>(initialUserState);
+  const [user, setUser] = useState<User>(() => {
+    const localData = localStorage.getItem('gym-tracker-user');
+
+    return localData ? JSON.parse(localData) : initialUserState;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('gym-tracker-user', JSON.stringify(user));
+  }, [user]);
 
   return (
     <UserContext.Provider value={[user, setUser]}>
