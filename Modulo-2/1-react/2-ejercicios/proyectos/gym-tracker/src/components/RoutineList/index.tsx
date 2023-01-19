@@ -2,7 +2,8 @@ import { useState, useContext } from 'react';
 import { RoutineContext } from '../../context/RoutineContext';
 import { Routine } from '../../types/routine';
 import Modal from '../Modal';
-import { AddButton, RoutineListWrapper } from './styles';
+import RoutineForm from '../RoutineForm';
+import { AddButton, RoutineLink, RoutineListWrapper } from './styles';
 
 const RoutineList = (): React.ReactElement => {
   const [open, setOpen] = useState(false);
@@ -19,23 +20,20 @@ const RoutineList = (): React.ReactElement => {
         <h3>Your Programms</h3>
 
         <div>
-          {routines.map(({ title, id }) => {
+          {routines.map(({ title, id }) => (
             <RoutineLink key={id} to={`/routine/${id}`}>
               <h3>{title}</h3>
 
               <span>▶️</span>
-            </RoutineLink>;
-          })}
+            </RoutineLink>
+          ))}
         </div>
 
         <AddButton onClick={() => setOpen(true)}>+</AddButton>
       </RoutineListWrapper>
 
       <Modal open={open}>
-        <UserProfileForm
-          onCancel={() => setOpen(false)}
-          onSave={onAddRoutine}
-        />
+        <RoutineForm onCancel={() => setOpen(false)} onSave={onAddRoutine} />
       </Modal>
     </>
   );

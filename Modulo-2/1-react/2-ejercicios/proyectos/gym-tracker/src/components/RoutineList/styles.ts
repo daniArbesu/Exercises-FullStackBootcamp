@@ -31,4 +31,5 @@ export const RoutineLink = styled(Link)`
   display: flex;
   justify-content: space-between;
   color: white;
+  margin-bottom: 1rem;
 `;

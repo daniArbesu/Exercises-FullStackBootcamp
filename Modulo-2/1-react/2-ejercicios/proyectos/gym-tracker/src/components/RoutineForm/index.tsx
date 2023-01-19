@@ -15,7 +15,6 @@ const RoutineForm = ({ onCancel, onSave }: Props): React.ReactElement => {
         <p>Gym Programm name:</p>
         <input type="text" {...register('title', { required: true })} />
       </label>
-      <label>
 
       <ActionsWrapper>
         <CancelButton type="button" onClick={onCancel}>
@@ -32,4 +31,4 @@ export type Props = {
   onSave: (newRoutine: Routine) => void;
 };
 
-export default UserProfileForm;
+export default RoutineForm;

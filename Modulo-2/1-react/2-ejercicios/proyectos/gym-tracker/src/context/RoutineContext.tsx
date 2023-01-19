@@ -10,7 +10,6 @@ import { v4 as uuidv4 } from 'uuid'; //generate random id
 import { Routine } from '../types/routine';
 
 const initialRoutineState: Routine[] = [];
-type SetRoutines = Dispatch<SetStateAction<Routine[]>>;
 
 export const RoutineContext = createContext<
   [Routine[], (routine: Routine) => void]
