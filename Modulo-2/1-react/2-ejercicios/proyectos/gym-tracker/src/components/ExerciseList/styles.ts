@@ -2,6 +2,12 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ContentBlockCss } from '../../styles/Global';
 
+export const ExerciseListWrapper = styled.div`
+  > h2 {
+    padding-bottom: 2rem;
+  }
+`;
+
 export const AddButton = styled.button`
   align-items: center;
   border-radius: 100%;
@@ -37,4 +43,19 @@ export const RoutineLink = styled(Link)`
   display: flex;
   justify-content: space-between;
   color: white;
+`;
+
+export const Exercises = styled.div`
+  ${ContentBlockCss}
+  margin-bottom: 1rem;
+
+  > h3 {
+    margin-bottom: 1rem;
+  }
+`;
+
+export const Series = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 `;

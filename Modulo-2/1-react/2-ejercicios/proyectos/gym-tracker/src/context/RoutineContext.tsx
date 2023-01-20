@@ -47,7 +47,7 @@ export const RoutineContextProvider = ({
 
         return {
           ...routine,
-          exercises: [...routine.exercises, exercise],
+          exercises: [...routine.exercises, { ...exercise, id: uuidv4() }],
         };
       });
 
