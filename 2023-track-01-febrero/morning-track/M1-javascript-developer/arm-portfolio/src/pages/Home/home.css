@@ -1,0 +1,23 @@
+.home {
+  padding: 0 8rem;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+@media (max-width: 700px) {
+  .home {
+    padding: 0 2rem;
+  }
+}
+
+.home > .home-title {
+  font-size: 5rem;
+}
+
+.home > a {
+  font-size: 1.5rem;
+}

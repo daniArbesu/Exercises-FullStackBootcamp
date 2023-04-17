@@ -1,0 +1,15 @@
+.gh-container {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(45, 51, 68, 0.6);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+}

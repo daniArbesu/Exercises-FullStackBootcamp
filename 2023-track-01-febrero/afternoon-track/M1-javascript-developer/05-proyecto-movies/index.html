@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic"
+      rel="stylesheet"
+    />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <header>
+      <button id="allBtn">All</button>
+      <button id="moviesBtn">Movies</button>
+      <button id="showsBtn">Shows</button>
+      <input type="text" id="searchbar" placeholder="Title or Genre..." />
+      <select id="genreSelect">
+        <option value="">-</option>
+        <option value="action">Action</option>
+        <option value="adventure">Adventure</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="drama">Drama</option>
+      </select>
+      <input type="range" id="rangeInput" min="2000" max="2016" step="1" />
+      <p id="rangeInputValue">Date</p>
+      <button id="theme">🌚</button>
+    </header>
+    <div id="app" class="gallery"></div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
